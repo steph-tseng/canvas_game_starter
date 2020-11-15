@@ -83,6 +83,16 @@ function loadImages() {
     playerReady = true;
   };
   foodImage.src = "images/food.png";
+
+  arrowsImage = new Image();
+  arrowsImage.onload = function () {
+    playerReady = true;
+  };
+  arrowsImage.src = "images/arrows.png";
+  document.body.appendChild(arrowsImage);
+  arrowsImage.style.position = "absolute";
+  arrowsImage.style.top = "500px";
+  arrowsImage.style.width = "200px";
 }
 
 function loadAudio() {
@@ -161,6 +171,16 @@ lvl.style.left = "520px";
 lvl.style.color = "#fff";
 lvl.innerHTML = `Level ${currentlvl}`;
 
+var directions = document.createElement("p");
+document.body.appendChild(directions);
+directions.style.position = "absolute";
+directions.style.top = "500px";
+directions.style.left = "800px";
+directions.style.right = "200px";
+directions.style.color = "#fff";
+directions.innerHTML =
+  "Use the arrow keys to move to avoid the monsters and rescue as many cats as you can before the timer runs out!";
+directions.style.fontSize = "20px";
 /**
  * Keyboard Listeners
  * You can safely ignore this part, for now.
