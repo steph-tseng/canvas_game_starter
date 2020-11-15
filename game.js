@@ -156,7 +156,7 @@ highScore.innerHTML = `Highscore: ${highestScore}`;
 var lvl = document.createElement("h2");
 document.body.appendChild(lvl);
 lvl.style.position = "absolute";
-lvl.style.top = "75px";
+lvl.style.top = "60px";
 lvl.style.left = "520px";
 lvl.style.color = "#fff";
 lvl.innerHTML = `Level ${currentlvl}`;
