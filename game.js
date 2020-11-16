@@ -39,9 +39,13 @@ var highestScore = 0;
 var playerName = "";
 let startGame = 0;
 
+var meow = new Audio("mp3/Meowing-cat-sound.mp3");
+
 function loadImages() {
   document.body.style.backgroundImage = apocalypseBg = new Image();
-  apocalypseBg.onload;
+  apocalypseBg.onload = function () {
+    bgReady = true;
+  };
   apocalypseBg.src = "images/apocalypse.jpg";
   document.body.style.backgroundColor = "#000";
 
@@ -98,8 +102,6 @@ function loadImages() {
 function loadAudio() {
   var bgMusic = document.getElementById("bgMusic");
   bgMusic.play();
-  var meow = new Audio("mp3/Meowing-cat-sound.mp3");
-  document.body.appendChild(meow);
 }
 
 var nextLvl = document.createElement("BUTTON");
@@ -331,6 +333,7 @@ let update = function () {
     foodPresent = false;
     kittyX = Math.random() * canvas.width - 32;
     kittyY = Math.random() * canvas.height - 32;
+    meow.play();
   }
   //monster attack
   if (
@@ -413,6 +416,7 @@ function render() {
     score = 0;
     food = 1;
     currentlvl = 1;
+    lvl.innerHTML = `Level ${currentlvl}`;
     start();
     if (totalScore > highestScore) {
       highestScore = totalScore;
